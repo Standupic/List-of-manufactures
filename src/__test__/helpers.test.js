@@ -15,7 +15,7 @@ const obj = [
   },
 ];
 
-it('test1', () => {
+test('test1', () => {
   expect(mappingAllManufactures(obj)).toEqual([
     {
       country: 'UNITED STATES (USA)',

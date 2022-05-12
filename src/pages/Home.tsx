@@ -7,7 +7,6 @@ import { useInView } from 'react-intersection-observer';
 import { IManufactureState } from '../types';
 import {
   selectAllManufactures,
-  selectCurrentPage,
   selectManufacturesLoading,
   selectNextPageLoading,
 } from '../selectors/manufactures';
@@ -19,15 +18,17 @@ const Home = () => {
   const AllManufactures = useSelector(selectAllManufactures);
   const dataLoading = useSelector(selectManufacturesLoading);
   const nextPageLoading = useSelector(selectNextPageLoading);
+
   const { ref, inView } = useInView({
     threshold: 0,
   });
   useNextPage(ref, inView);
   const history = useHistory();
+
   const data = useMemo(() => {
     const returnSpinner = (td: string | JSX.Element) => (dataLoading ? <Spinner /> : td);
     const getDetailsHandler = (id: string) => {
-      //sessionStorage.setItem('scrollPosition', window.pageYOffset.toString());
+      sessionStorage.setItem('scrollPosition', window.pageYOffset.toString());
       history.push(`/details/${id}`);
     };
     return AllManufactures?.map((item: IManufactureState, index: number) => {

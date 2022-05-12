@@ -9,6 +9,7 @@ const useDetails = () => {
   useEffect(() => {
     if (params && params.id) {
       dispatch(fetchDetails({ id: params.id }));
+      document.getElementById(`${params.id}`)?.scrollIntoView();
     }
   }, [dispatch, params.id, params]);
 };

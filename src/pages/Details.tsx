@@ -17,7 +17,7 @@ const Details = () => {
   const data = useMemo(() => {
     return AllManufactures?.map((item: IManufactureState) => {
       return (
-        <Tr key={uniqueId(item.id)}>
+        <Tr key={uniqueId(item.id)} id={item.id}>
           <Td>{item.country}</Td>
           <Td>{item.name}</Td>
           <Td isNumeric>{item.id}</Td>
