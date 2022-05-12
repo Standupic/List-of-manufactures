@@ -28,11 +28,7 @@ const initialState: manufacturesState = {
 const manufacturesSlice = createSlice({
   name: 'manufactures',
   initialState,
-  reducers: {
-    resetPage(state) {
-      state.currentPage = 1;
-    },
-  },
+  reducers: {},
   extraReducers: (builders) => {
     builders.addCase(fetchAllManufactures.fulfilled, (state, action) => {
       state.loadingHome = false;
@@ -76,5 +72,4 @@ const manufacturesSlice = createSlice({
   },
 });
 
-export const { resetPage } = manufacturesSlice.actions;
 export default manufacturesSlice.reducer;

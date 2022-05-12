@@ -28,7 +28,6 @@ const Home = () => {
   const data = useMemo(() => {
     const returnSpinner = (td: string | JSX.Element) => (dataLoading ? <Spinner /> : td);
     const getDetailsHandler = (id: string) => {
-      sessionStorage.setItem('scrollPosition', window.pageYOffset.toString());
       history.push(`/details/${id}`);
     };
     return AllManufactures?.map((item: IManufactureState, index: number) => {
