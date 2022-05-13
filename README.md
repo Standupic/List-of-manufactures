@@ -7,6 +7,10 @@ It was added persistence, that allows do not lost state of your application afte
 
 Unfortunately an api does not provide the total count the manufacturers, that is why i have decided to get limit to 30 pages for infinite scrolling.
 
+To make sure and provide subsequence of loading pages for infinite scrolling was added "Loader" while fetching data from server. 
+What is problem ? When a target element intersects with an ancestor element while fetching data from server the position of target element stay in the intersection that causes next request to API. 
+This way we fetching not one page but several in the same time point.
+
 ## Available Scripts
 
 In the project directory, you can run:
