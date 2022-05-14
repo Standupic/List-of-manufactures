@@ -16,12 +16,12 @@ const mockNetResponse = () => {
   mock.onGet(`vehicles/GetMakeForManufacturer/${idDetail}`).reply(200, getListResponse);
 };
 
-describe('fetch ', () => {
+describe('fetch details', () => {
   beforeAll(() => {
     mockNetResponse();
   });
 
-  it('Should be able to fetch the games list for a specific user', async () => {
+  it('Should be get details', async () => {
     const result = await store.dispatch(fetchDetails({ id: idDetail }));
     const details = result.payload;
     expect(result.type).toBe('manufactures/fetchDetails/fulfilled');
