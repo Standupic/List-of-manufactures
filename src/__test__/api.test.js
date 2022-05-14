@@ -2,7 +2,7 @@ import MockAdapter from 'axios-mock-adapter';
 import api from '../api';
 import fetchDetails from '../middlewares/fetchDetails';
 import store from '../store';
-const idDetail = '590';
+const idDetail = '955';
 
 const getListResponse = {
   Count: 0,
@@ -27,5 +27,10 @@ describe('fetch details', () => {
     expect(result.type).toBe('manufactures/fetchDetails/fulfilled');
     expect(details.models).toEqual(getListResponse.Results);
     expect(details.id).toEqual(idDetail);
+    const state = store.getState();
+    expect(state.manufactures.manufactures.filter((item) => item.id === idDetail)).toBeTruthy();
   });
 });
+
+
+
