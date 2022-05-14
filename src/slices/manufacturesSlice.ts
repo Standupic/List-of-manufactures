@@ -55,6 +55,7 @@ const manufacturesSlice = createSlice({
     });
     builders.addCase(fetchDetails.rejected, (state, action) => {
       state.error = 'Something went wrong!';
+      state.loadingDetails = false;
     });
     builders.addCase(fetchNextPage.fulfilled, (state, action) => {
       const { data, nextPage } = action.payload;
